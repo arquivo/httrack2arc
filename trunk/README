@@ -37,3 +37,10 @@ destination_dir: the destination for the converted ARC files.
 default_time: the default time to be given to an archived
 	file if its date cannot be detected (this should be
 	the date of the HTTrack crawl)
+
+
+-----------------------------------------------------------
+Limitations
+-----------------------------------------------------------
+* Changing from RecursiveCrawlExporter? to SingleCrawlExporter requires editing HTTrack2ArcConverter.java and recompile.
+* Changing the ARC files basename, prefix, and default IP requires editing ArcWriter.java and recompile.
