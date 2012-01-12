@@ -1,0 +1,46 @@
+HTTrack2Arc
+===========================================================
+HTTrack2Arc is a tool that converts crawls made by HTTrack
+to Internet Archive ARC files.
+
+HTTrack2Arc is a tool created by the SAW group at FCCN
+<sawfccn@google.com> to be used by the Portuguese Web
+Archive for internal projects (http://www.arquivo.pt/).
+
+This software is distributed as is and is licensed with
+GNU LGPL licence.
+
+
+-----------------------------------------------------------
+Running HTTrack2Arc
+-----------------------------------------------------------
+You can run HTTrack2Arc using an Ant task:
+
+> ant run -Dsource=<source_dir> -Ddestination=<destination_dir>
+
+This way, Ant adds the needed dependencies to the class path and
+no further configuration is needed.
+
+If don't want to use Ant, make sure to add the needed
+dependencies to the classpath and run HTTrack2ARc either
+using (from the jar file):
+
+> java -jar httrack2arc.jar <source_dir> <destination_dir> [--default-time=<default_time>]
+
+or (from the java class):
+
+> java HTTrack2ArcConverter <source_dir> <destination_dir> [--default-time=<default_time>]
+
+
+source_dir: the dir with the HTTrack crawls.
+destination_dir: the destination for the converted ARC files.
+default_time: the default time to be given to an archived
+	file if its date cannot be detected (this should be
+	the date of the HTTrack crawl)
+
+
+-----------------------------------------------------------
+Limitations
+-----------------------------------------------------------
+* Changing from RecursiveCrawlExporter? to SingleCrawlExporter requires editing HTTrack2ArcConverter.java and recompile.
+* Changing the ARC files basename, prefix, and default IP requires editing ArcWriter.java and recompile.
