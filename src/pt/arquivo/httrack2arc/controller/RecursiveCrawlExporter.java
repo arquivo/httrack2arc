@@ -203,7 +203,7 @@ public class RecursiveCrawlExporter implements Exporter {
 					
 					
 					if ( !http ) {
-						pos = filename.substring("https:/");
+						pos = filename.indexOf("https:/");
 						if ( pos != -1) {
 							filename = filename.substring(pos);
 						}
