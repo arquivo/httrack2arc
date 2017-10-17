@@ -127,7 +127,7 @@ public class LogReader {
 					LogEntry entry = new LogEntry();
 
 					String url = match.group(LogColumn.URL.position());
-					if ( !url.startsWith("http://") )
+					if ( !url.startsWith("http://") && !url.startsWith("https://"))
 						url = "http://" + url;
 					entry.setUrl( url );
 					entry.setLocal( match.group(LogColumn.LOCAL.position()) );
@@ -169,7 +169,7 @@ public class LogReader {
 					LogEntry entry = new LogEntry();
 
 					String url = match.group(LogColumn.URL.position());
-					if ( !url.startsWith("http://") )
+					if ( !url.startsWith("http://") && !url.startsWith("https://"))
 						url = "http://" + url;
 					entry.setUrl( url );
 					entry.setLocal( match.group(LogColumn.NO_DATE_LOCAL.position()) );

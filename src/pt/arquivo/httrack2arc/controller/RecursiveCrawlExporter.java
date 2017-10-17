@@ -194,10 +194,20 @@ public class RecursiveCrawlExporter implements Exporter {
 					
 					// Extract the URL from the file path
 					String filename = child.getAbsolutePath();
+					boolean http = false;
 					int pos = filename.indexOf("http:/");
 					if ( pos != -1) {
 						filename = filename.substring(pos);
+						http = true;
 					}
+					
+					
+					if ( !http ) {
+						pos = filename.indexOf("https:/");
+						if ( pos != -1) {
+							filename = filename.substring(pos);
+						}
+					}	
 					String cacheEntry = filename.replaceFirst("/", "//");
 
 					for (LogEntry logEntry : metadata) {
